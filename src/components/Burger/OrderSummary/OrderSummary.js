@@ -5,9 +5,10 @@ const orderSummery = (props) => {
     const ingredientSummary = Object.keys(props.ingredients)
         .map( igKey => {
         return (
-        <li key={igKey}>
-            <span style={{ textTransform: 'capitalize' }}>{igKey}</span>: {props.ingredients[igKey]}
-        </li>);
+        props.ingredients[igKey] > 0 ? 
+            <li key={igKey}>
+                <span style={{ textTransform: 'capitalize' }}>{igKey}</span>: {props.ingredients[igKey]}
+            </li>: null );
         } );
     return(
         <Aux>
@@ -17,6 +18,8 @@ const orderSummery = (props) => {
                 {ingredientSummary}
             </ul>
             <p>Continue to checkout....</p>
+            <button>CANCLE</button>
+            <button>CONTINUE</button>
         </Aux>
     );
 };
